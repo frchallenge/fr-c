@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Recognizing One Million Celebrities</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+    <link rel="canonical" href="http://localhost:4000/facemodel/">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="/css/side-menu-on-hover.css" rel="stylesheet">
+   
+</head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <a href="/" class="navbar-brand"></a>
+        <button class = "navbar-toggle" data-toggle = "collapse" data-target=".navHeaderCollapse">
+            <span class = "icon-bar"></span>    
+            <span class = "icon-bar"></span>    
+            <span class = "icon-bar"></span>    
+        </button>
+        <div class="collapse navbar-collapse navHeaderCollapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../index">Home</a></li>
+                <li><a href="../people">People</a></li>
+                <li><a href="../celeb1m/1m">Challenge-1</a></li>
+                <li><a href="../challenge2/2017">Challenge-2</a></li>
+                <li><a href="../3/2019">Challenge-3</a></li>
+                <li><a href="../facemodel">Face Model Zoo</a></li>                
+            </ul>
+        </div>
+    </div>  
+</div>
+
+
+    <div class="container">
+        <div class="page-content">
+            <div class="wrap">
+            <h1 id="face-model-zoo">Face Model Zoo</h1>
+
+<h3 id="ms-celeb-1m-challenge-1-model-from-smile-labneu-2016">MS-Celeb-1M Challenge 1 Model: from SMILE Lab@NEU 2016</h3>
+
+<ul>
+  <li>
+    <p>Model purpose: to recognize large-scale celebrities from their face images</p>
+  </li>
+  <li>
+    <p>Training data: the cropped and aligned version of the MS-Celeb-1M dataset, <a href="../download/aligned">dataset download page</a>; no external data used.</p>
+  </li>
+  <li>
+    <p>Brief description: quote from the authors “Due to the large amont of training images (~8.5 millions), we reduce the total training epochs to 30 epochs, and lower the learning rate from 0.1 to 0.01 after 10 epochs, and to 0.001 after 20 epochs. All other settings are the same with original ResNet training setting.”</p>
+  </li>
+  <li>Performance: measured with the benchmark offered by MS-Celeb-1M Challenge 1, described <a href="../celeb1m/evaluation">here</a>;
+    <ul>
+      <li>Coverage @ Precision = 0.95, Random set: 0.734</li>
+      <li>Coverage @ Precision = 0.95, Hard set: 0.534</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Download</strong>: <a href="https://github.com/wuyuebupt/MSCeleb1MTensorflowModel">code</a>; <a href="https://drive.google.com/open?id=1-P0umHM4BowoM1qckEVaqEIAI2SHwJzL">model</a></p>
+  </li>
+  <li>Reference paper</li>
+</ul>
+<dl>
+    <pre>
+	@INPROCEEDINGS{ACMMMMSCeleb1M-2,
+		author = {Wu, Yue and Li, Jun and Kong, Yu and Fu, Yun},
+		title = {Deep Convolutional Neural Network with Independent Softmax for Large Scale Face Recognition},
+		booktitle = {ACM Multimedia},
+		year = {2016},
+		location = {Amsterdam, The Netherlands},
+		pages = {1063--1067}}</pre>
+</dl>
+
+<h3 id="ms-celeb-1m-challenge-2-model-smile-labneu-2017">MS-Celeb-1M Challenge 2 Model: SMILE Lab@NEU 2017</h3>
+
+<ul>
+  <li>
+    <p>Model purpose: one-shot face recognition, large-scale celebrities recognition with extremely imbalanced training data</p>
+  </li>
+  <li>
+    <p>Training data: MS-Celeb-1M low-shot training dataset, <a href="../download/lowshot">dataset download page</a>; no external data used.</p>
+  </li>
+  <li>
+    <p>Brief description: the winner solution (no external data option) for the MS-Celeb-1M Challenge-2 @ ICCV 2017 Workshop</p>
+  </li>
+  <li>Performance: measured with the benchmark offered by MS-Celeb-1M Challenge 2, described <a href="../challenge2/evaluation">here</a>;
+    <ul>
+      <li>Base set, Top-1 accuracy: 0.9959</li>
+      <li>One-shot set, Coverage @ Precision = 0.99: 0.9264</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Download</strong>: <a href="https://github.com/wuyuebupt/hybridClassifier">code</a></p>
+  </li>
+  <li>Reference paper</li>
+</ul>
+<dl>
+    <pre>
+	@INPROCEEDINGS{ICCVWorkshop-2,
+		author = {Wu, Yue and Hongfu Liu and Fu, Yun},
+		title = {Low-shot Face Recognition with Hybrid Classifiers},
+		booktitle ={ICCV Workshop} ,
+		year = {2017}
+	} </pre>
+</dl>
+
+<h3 id="face-verification-model-v1-visual-intelligence-group-vig-at-microsoft">Face Verification Model-v1: Visual Intelligence Group (VIG) at Microsoft</h3>
+
+<ul>
+  <li>
+    <p>Model purpose: face feature extraction</p>
+  </li>
+  <li>
+    <p>Training data: MS-Celeb-1M low-shot training dataset (only baseset used, about one million images), <a href="../download/lowshot">dataset download page</a>;</p>
+  </li>
+  <li>
+    <p>Brief description: ResNet-34</p>
+  </li>
+  <li>Performance: measured with <a href="http://vis-www.cs.umass.edu/lfw/">lfw</a> verification task;
+    <ul>
+      <li>Mean accuracy without cosine bundle: 0.9888</li>
+      <li>Mean accuracy with cosine bundle: 0.9928</li>
+    </ul>
+  </li>
+  <li>Reference paper</li>
+</ul>
+<dl>
+    <pre>
+	@article { lowshotface,
+           author = {Guo, Yandong and Zhang, Lei},
+           title = {One-shot Face Recognition by Promoting Underrepresented Classes},
+           Journal   = {arXiv preprint arXiv:1707.05574},
+           Year      = {2017}}</pre>
+</dl>
+
+<h3 id="face-verification-model-v2-visual-intelligence-group-vig-at-microsoft">Face Verification Model-v2: Visual Intelligence Group (VIG) at Microsoft</h3>
+
+<ul>
+  <li>
+    <p>Model purpose: face feature extraction</p>
+  </li>
+  <li>
+    <p>Training data: MS-Celeb-1M dataset (cleaned version, about four million images), cropped and aligned version <a href="../download/aligned">dataset download page</a>;</p>
+  </li>
+  <li>Brief description: standard softmax and cosine bundle, with ResNet-34
+    <ul>
+      <li>Top performer with public data, highly reproducible</li>
+    </ul>
+  </li>
+  <li><strong>Performance</strong>: measured with <a href="http://vis-www.cs.umass.edu/lfw/">lfw</a> verification task ;
+    <ul>
+      <li>Mean accuracy: <strong>0.9971</strong></li>
+    </ul>
+  </li>
+  <li>Reference paper</li>
+</ul>
+<dl>
+    <pre>
+	@article {lowshotface,
+           author = {Guo, Yandong and Zhang, Lei},
+           title = {One-shot Face Recognition by Promoting Underrepresented Classes},
+           Journal   = {arXiv preprint arXiv:1707.05574},
+           Year      = {2017}}</pre>
+</dl>
+
+<h3 id="face-verification-model-visual-geometry-group-vgg">Face Verification Model: Visual Geometry Group (VGG)</h3>
+
+<ul>
+  <li>
+    <p>Model purpose: face feature extraction</p>
+  </li>
+  <li>
+    <p>Training data: VGG Face2 dataset <a href="http://www.robots.ox.ac.uk/~vgg/data/vgg_face2/">dataset description page</a>;</p>
+  </li>
+  <li>Brief description: ResNet-50/SE-ResNet-50
+    <ul>
+      <li>Top performer with public data, highly reproducible</li>
+    </ul>
+  </li>
+  <li><strong>Performance</strong>: IARPA Janus Benchmark tasks (please refer to the paper for detailed results);
+    <ul>
+      <li>IJB-A, FAR = 0.001, TAR = 0.921</li>
+      <li>IJB-B, FAR = 0.00001, TAR = 0.705</li>
+    </ul>
+  </li>
+  <li>Reference paper</li>
+</ul>
+<dl>
+    <pre>
+	@article {VGGFace2,
+           author = {Qiong Cao and Li Shen and Weidi Xie and Omkar M. Parkhi and Andrew Zisserman},
+           title = {VGGFace2: A dataset for recognising faces across pose and age},
+           Journal   = {arXiv preprint arXiv:1710.08092},
+           Year      = {2017}}</pre>
+</dl>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="site-footer">
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+
+    <div class="footer-col-1 column">
+        <li>
+          <a href="mailto:your-email@example.com">your-email@example.com</a>
+       </li>
+    </div>
+
+    <div class="footer-col-2 column">
+        
+    </div>
+
+    <div class="footer-col-3 column">
+      
+    </div>
+
+  </div>
+  </div>
+
+</footer>
+
+    <!-- mathjax -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- jquery, must be before boostrap as its dependency -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>    
+    <!-- boostrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        parts = this.location.pathname.split('/').filter(function(el) {return el.length != 0});
+        if (parts.length == 0)
+        {
+            $('a[href="/"]').parents('li,ul').addClass('active');
+        }
+        else
+        {
+            for (var i = 0; i < parts.length; i++)
+            {
+                $('a[href*="' + parts[i] + '"]').parents('li,ul').addClass('active');
+            }
+        }
+    </script>
+
+  </body>
+
+</html>
