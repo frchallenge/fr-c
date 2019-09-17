@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dataset</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+    <link rel="canonical" href="http://localhost:4000/celeb1m/evaluation">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="/css/side-menu-on-hover.css" rel="stylesheet">
+   
+</head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="collapse navbar-collapse navHeaderCollapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../index">Home</a></li>
+                <li><a href="../people">People</a></li>
+                <li><a href="../celeb1m/1m">Challenge-1</a></li>
+                <li><a href="../challenge2/2017">Challenge-2</a></li>
+                <li><a href="../3/2019">Challenge-3</a></li>
+                <li><a href="../facemodel">Face Model Zoo</a></li>                
+            </ul>
+        </div>
+    </div>  
+</div>
+
+
+    <div class="container">
+        <div class="page-content">
+            <div class="wrap">
+                  <div class="container">
+          <div class="col-md-3">
+              <br><br><br><br>
+              <nav class="navbar navbar-default sidebar" role="navigation">
+                  <div class="container-fluid">
+                      <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                        Choose the Challenges
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      </div>
+                      <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                          <ul class="nav navbar-nav">
+                              <li><a href="1m" role="tab">Task Description</a></li>
+                              <li><a href="dataset">Dataset</a></li>
+                              <li><a href="evaluation">Evaluation</a></li>
+                              <li><a href="https://www.microsoft.com/en-us/research/project/msr-image-recognition-challenge-irc/">Previous Challenges</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </nav>
+          </div>
+          <div class="col-md-9">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="tab-content">
+                                  <h1 id="recognizing-one-million-celebrities">Recognizing One Million Celebrities</h1>
+<h2 id="measurement-set">Measurement Set</h2>
+
+<p>There are several datasets for measurement purpose. 
+To clarify, 
+we summarize their descriptions in the following table.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>Purpose</th>
+      <th>Face Aligned or Not</th>
+      <th>Random/Hard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Face-Aligned-Dev-1</td>
+      <td>Development (label provided)</td>
+      <td>Face aligned</td>
+      <td>Hard selection</td>
+    </tr>
+    <tr>
+      <td>Face-Aligned-Dev-2</td>
+      <td>Development (label provided)</td>
+      <td>Face aligned</td>
+      <td>Random selection</td>
+    </tr>
+    <tr>
+      <td>Face-Cropped-Dev-1</td>
+      <td>Development (label provided)</td>
+      <td>No alignment</td>
+      <td>Hard selection</td>
+    </tr>
+    <tr>
+      <td>Face-Cropped-Dev-2</td>
+      <td>Development (label provided)</td>
+      <td>No alignment</td>
+      <td>Random selection</td>
+    </tr>
+    <tr>
+      <td>Face-Aligned-Test-(part 1)</td>
+      <td>Test (no label provided)</td>
+      <td>Face aligned</td>
+      <td>Hard selection</td>
+    </tr>
+    <tr>
+      <td>Face-Aligned-Test-(part 2)</td>
+      <td>Test (no label provided)</td>
+      <td>Face aligned</td>
+      <td>Random selection</td>
+    </tr>
+    <tr>
+      <td>Face-Cropped-Test-(part 1)</td>
+      <td>Test (no label provided)</td>
+      <td>No alignment</td>
+      <td>Hard selection</td>
+    </tr>
+    <tr>
+      <td>Face-Cropped-Test-(part 2)</td>
+      <td>Test (no label provided)</td>
+      <td>No alignment</td>
+      <td>Random selection</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For the dataset with the “development” purpose, 
+we release the ground truth label. 
+Participants can use this dataset to develop and tune their algorithms. 
+The dataset with the “development” purpose could be downloaded <a href="/download/devset">here</a>.</p>
+
+<p>For the datasets with the “test” purpose, 
+we do NOT include the ground truth label. 
+Participants need to register <a href="http://imhub-eastus2.cloudapp.net:9999/user/sign-in">here</a>
+to receive the download link for these datasets.
+We will send emails with download link one week before the final results announcement (tentatively July 14th).</p>
+
+<h2 id="code-for-evaluation">Code for Evaluation</h2>
+
+<p>We give evaluation code and sample result files (obtained with the development set)
+<a href="https://1drv.ms/f/s!AsQPov4_i5H0gSVo3bxDuWWNRYQU">here</a>. 
+After download, please run the following command to obtain the results shown in the <a href="https://www.microsoft.com/en-us/research/publication/ms-celeb-1m-dataset-benchmark-large-scale-face-recognition-2/">paper</a>.</p>
+<blockquote>
+  <p>python PrecisionCoverageEst.py -config Curve_Development.config -pthresh 0.95
+This sample results file has the following format</p>
+  <ul>
+    <li>Column1: Freebase MID (ground truth)</li>
+    <li>Column2: EntityNameString</li>
+    <li>Column3: ImageURL</li>
+    <li>Column4: FaceID</li>
+    <li>Column5: MID estimated</li>
+    <li>Column6: Confidence score</li>
+  </ul>
+</blockquote>
+
+<p>Participants can use this code to test the performance 
+of their algorithms on the development set.</p>
+
+<p>To obtain results with the test set, 
+participants need to upload their results after they sign in <a href="http://imhub-eastus2.cloudapp.net:9999/user/sign-in">here</a>. 
+Please provide the experimental results in a tsv file, in which each line has the following format (delimited by tab).</p>
+
+<ul>
+  <li>Column1: LineNumberIndex (please use the line number we offered in the test file)</li>
+  <li>Column2: MID estimated</li>
+  <li>Column3: Confidence score</li>
+</ul>
+
+<h2 id="more-information">More Information</h2>
+<p>If participants use their own alignment algorithm, 
+we recommend to use the dataset with the “no alignment” option and run their own alignment algorithm. 
+If participants use our aligned face images for training, 
+we recommend to use the dataset with the “face aligned” option. 
+The “hard selection” and “random selection” is described <a href="/celeb1m/dataset">here</a>.</p>
+
+
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="site-footer">
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+
+    <div class="footer-col-1 column">
+        <li>
+          <a href="mailto:your-email@example.com">your-email@example.com</a>
+       </li>
+    </div>
+
+    <div class="footer-col-2 column">
+        
+    </div>
+
+    <div class="footer-col-3 column">
+      
+    </div>
+
+  </div>
+  </div>
+
+</footer>
+
+    <!-- mathjax -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- jquery, must be before boostrap as its dependency -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>    
+    <!-- boostrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        parts = this.location.pathname.split('/').filter(function(el) {return el.length != 0});
+        if (parts.length == 0)
+        {
+            $('a[href="/"]').parents('li,ul').addClass('active');
+        }
+        else
+        {
+            for (var i = 0; i < parts.length; i++)
+            {
+                $('a[href*="' + parts[i] + '"]').parents('li,ul').addClass('active');
+            }
+        }
+    </script>
+
+  </body>
+
+</html>
