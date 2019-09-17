@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Challenge @ ICCV Workshop 2017</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+    <link rel="canonical" href="http://localhost:4000/challenge2/dataset">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="/css/side-menu-on-hover.css" rel="stylesheet">
+   
+</head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="collapse navbar-collapse navHeaderCollapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../index">Home</a></li>
+                <li><a href="../people">People</a></li>
+                <li><a href="../celeb1m/1m">Challenge-1</a></li>
+                <li><a href="../challenge2/2017">Challenge-2</a></li>
+                <li><a href="../3/2019">Challenge-3</a></li>
+                <li><a href="../facemodel">Face Model Zoo</a></li>                
+            </ul>
+        </div>
+    </div>  
+</div>
+
+
+    <div class="container">
+        <div class="page-content">
+            <div class="wrap">
+                  <div class="container">
+          <div class="col-md-3">
+              <br><br><br><br>
+              <nav class="navbar navbar-default sidebar" role="navigation">
+                  <div class="container-fluid">
+                      <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                        Choose the Challenges
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      </div>
+                      <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                          <ul class="nav navbar-nav">
+                              <li><a href="2017" role="tab">Task Description</a></li>
+                              <li><a href="dataset">Dataset</a></li>
+                              <li><a href="evaluation">Evaluation</a></li>
+                              <li><a href="https://www.microsoft.com/en-us/research/project/msr-image-recognition-challenge-irc/">Previous Challenges</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </nav>
+          </div>
+          <div class="col-md-9">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="tab-content">
+                                  <h1 id="low-shot-learning">Low-shot Learning</h1>
+
+<h2 id="dataset-description">Dataset Description</h2>
+<p>Download page is <a href="../download/lowshot">here</a>.</p>
+
+<p>In order to facilitate the second challenge, we provide three datasets as follows.</p>
+
+<ul>
+  <li>
+    <p><strong>Training set part one:</strong> 
+this dataset contains the training images for the base set. This dataset is provided to build models with general facial perceptions. For example, to learn face representation, calculate average face, etc. In this dataset, there are 20K celebrities, each with 50-100 images. We selected these 20K celebrities from our 100K celebrity list and cleaned the dataset by running algorithms to remove outliers. To verify the data accuracy after cleaning, we randomly selected 2000 images from the base dataset and obtained the estimate of the labeling accuracy as about 99.5%.</p>
+  </li>
+  <li>
+    <p><strong>Training set part two:</strong> 
+this dataset contains the training images for the novel set. This dataset contains 1000 celebrities, who are NOT included in the 20K celebrity list in the training set one. There are limited number (1, 2, 5) of training images for each celebrity in this dataset. Participants are required to train models using the images in this dataset to recognize the same 1000 celebrities in the test set.</p>
+  </li>
+  <li>
+    <p><strong>Test set</strong>
+Our measurement set contains a mixture of test images from both the base set and the novel set. We provide about 5 test images per celebrity in the base set while 20 images per celebrity in the novel set. We have run a de-duplicate algorithm to ensure that no test image is included in either of the training sets.</p>
+  </li>
+</ul>
+
+<h2 id="notes-about-external-data-usage">Notes about External Data Usage</h2>
+
+<p>In the low-shot learning challenge, you can use external data (especially for the base model training), but not the images for the persons in the low-shot classes. 
+We restrict these persons in the low-shot classes only have limited (1,2,5) images for training for the sake of low-shot learning and fair comparison.</p>
+
+<p>In order to remove the images for the persons in the low-shot classes, we provide the Freebase MID at the third column of <a href="../download/lowshot">the low-shot classes data</a>. 
+The names of the corresponding MID is located on <a href="../download/list">this page</a>.</p>
+
+<p>Moreover, we encourage people to use the 20K celebrities in the base set to train the base model for easier comparison. According to our experiment, 20K celebrity can generate comparable results to the state of art on the LFW verification task.</p>
+
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="site-footer">
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+
+    <div class="footer-col-1 column">
+        <li>
+          <a href="mailto:your-email@example.com">your-email@example.com</a>
+       </li>
+    </div>
+
+    <div class="footer-col-2 column">
+        
+    </div>
+
+    <div class="footer-col-3 column">
+      
+    </div>
+
+  </div>
+  </div>
+
+</footer>
+
+    <!-- mathjax -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- jquery, must be before boostrap as its dependency -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>    
+    <!-- boostrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        parts = this.location.pathname.split('/').filter(function(el) {return el.length != 0});
+        if (parts.length == 0)
+        {
+            $('a[href="/"]').parents('li,ul').addClass('active');
+        }
+        else
+        {
+            for (var i = 0; i < parts.length; i++)
+            {
+                $('a[href*="' + parts[i] + '"]').parents('li,ul').addClass('active');
+            }
+        }
+    </script>
+
+  </body>
+
+</html>
