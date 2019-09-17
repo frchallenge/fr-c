@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Low-shot Learning for Face Recognition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+    <link rel="canonical" href="http://localhost:4000/challenge2/2017">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="/css/side-menu-on-hover.css" rel="stylesheet">
+   
+</head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="collapse navbar-collapse navHeaderCollapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../index">Home</a></li>
+                <li><a href="../people">People</a></li>
+                <li><a href="../celeb1m/1m">Challenge-1</a></li>
+                <li><a href="../challenge2/2017">Challenge-2</a></li>
+                <li><a href="../3/2019">Challenge-3</a></li>
+                <li><a href="../facemodel">Face Model Zoo</a></li>                
+            </ul>
+        </div>
+    </div>  
+</div>
+
+
+    <div class="container">
+        <div class="page-content">
+            <div class="wrap">
+                  <div class="container">
+          <div class="col-md-3">
+              <br><br><br><br>
+              <nav class="navbar navbar-default sidebar" role="navigation">
+                  <div class="container-fluid">
+                      <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                        Choose the Challenges
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      </div>
+                      <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                          <ul class="nav navbar-nav">
+                              <li><a href="2017" role="tab">Task Description</a></li>
+                              <li><a href="dataset">Dataset</a></li>
+                              <li><a href="evaluation">Evaluation</a></li>
+                              <li><a href="https://www.microsoft.com/en-us/research/project/msr-image-recognition-challenge-irc/">Previous Challenges</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </nav>
+          </div>
+          <div class="col-md-9">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="tab-content">
+                                  <h1 id="low-shot-learning">Low-shot Learning</h1>
+
+<h2 id="task-description-know-you-at-one-glance">Task Description: Know you at One Glance</h2>
+
+<p style="text-align:center"><img src="../../assets/image.jpg" alt="irc_ms-celeb-1m-sample0" width="792" height="231" /></p>
+
+<p>Recognizing one million celebrities naturally introduces the low-shot learning problem since many celebrities only have limited number of images available for training. Though human visual intelligence has the ability to recognize novel objects from very few examples, low-shot learning with machines is still an open problem.</p>
+
+<p>In this challenge, we investigate the problem of low-shot face recognition, with the goal to build a large-scale face recognizer capable of recognizing a substantial number of individuals with high precision and high recall. We create a benchmark dataset consisting of 21,000 persons each with 50-100 images of high accuracy ($&gt;99%$). We divide this dataset into the following two sets,</p>
+
+<ul>
+  <li>
+    <p>Base set. There are 20,000 persons in the base set. Each person has 50-100 images for training, and about 5 images for testing.</p>
+  </li>
+  <li>
+    <p>Novel set. There are 1,000 persons in the novel set. Each person has 1-5 images for training, and 20 images for testing.</p>
+  </li>
+</ul>
+
+<p>Our goal is to study when tens of images are given for each person in the base set while only one to five images are given for each person in the novel set, how to develop an algorithm to recognize the persons in both the data sets.</p>
+
+<p>The base set is used to assist the learning of face recognition feature. Using a standard residual network with 34 layers with the base set, we have achieved a single model accuracy of 98.88%, comparable to the state of the art, on the LFW verification task.</p>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>Our measurement set contains a mixture of test images from both the base set and the novel set. We mainly focus on the classification performance with the test images in the novel set to evaluate how well the computer can learn novel visual concepts with limited number of training samples, while also monitor the performance on the base set to ensure that the performance gain on the novel set is not obtained by sacrificing the performance on the base set. 
+A contesting system is asked to produce at least one prediction label with a confidence score per test image. To match with real scenarios, we measure the recognition coverage at a given precision 99%. That is, for N images in the measurement set, if an algorithm recognizes M images, among which C images are correct, we will calculate precision and recall as:</p>
+
+<p>precision = C/M
+coverage = M/N</p>
+
+<p>By varying the recognition confidence threshold, we can determine the coverage when the precision is at 99%. We rank the methods according to the coverage at the $99%$ precision with the test images in the novel set, while monitor the performance on the base set.</p>
+
+<p><strong>Note: Commercial/public intelligent services are not allowed to be called during the evaluation, e.g. <a href="https://www.microsoft.com/cognitive-services">Microsoft Cognitive Servcies</a>, etc. We will detect and ban the contestants for this kind of behavior.</strong></p>
+
+
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="site-footer">
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+
+    <div class="footer-col-1 column">
+        <li>
+          <a href="mailto:your-email@example.com">your-email@example.com</a>
+       </li>
+    </div>
+
+    <div class="footer-col-2 column">
+        
+    </div>
+
+    <div class="footer-col-3 column">
+      
+    </div>
+
+  </div>
+  </div>
+
+</footer>
+
+    <!-- mathjax -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- jquery, must be before boostrap as its dependency -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>    
+    <!-- boostrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        parts = this.location.pathname.split('/').filter(function(el) {return el.length != 0});
+        if (parts.length == 0)
+        {
+            $('a[href="/"]').parents('li,ul').addClass('active');
+        }
+        else
+        {
+            for (var i = 0; i < parts.length; i++)
+            {
+                $('a[href*="' + parts[i] + '"]').parents('li,ul').addClass('active');
+            }
+        }
+    </script>
+
+  </body>
+
+</html>
