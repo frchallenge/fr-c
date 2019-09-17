@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Recognizing One Million Celebrities</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+    <link rel="canonical" href="http://localhost:4000/celeb1m/1m">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="/css/side-menu-on-hover.css" rel="stylesheet">
+   
+</head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="collapse navbar-collapse navHeaderCollapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/about">Home</a></li>
+                <li><a href="/people">People</a></li>
+                <li><a href="/celeb1m/1m">Challenge-1</a></li>
+                <li><a href="/challenge2/2017">Challenge-2</a></li>
+                <li><a href="/3/2019">Challenge-3</a></li>
+                <li><a href="/facemodel">Face Model Zoo</a></li>                
+            </ul>
+        </div>
+    </div>  
+</div>
+
+
+    <div class="container">
+        <div class="page-content">
+            <div class="wrap">
+                  <div class="container">
+          <div class="col-md-3">
+              <br><br><br><br>
+              <nav class="navbar navbar-default sidebar" role="navigation">
+                  <div class="container-fluid">
+                      <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                        Choose the Challenges
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      </div>
+                      <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                          <ul class="nav navbar-nav">
+                              <li><a href="../1m" role="tab">Task Description</a></li>
+                              <li><a href="../dataset">Dataset</a></li>
+                              <li><a href="../evaluation">Evaluation</a></li>
+                              <li><a href="https://www.microsoft.com/en-us/research/project/msr-image-recognition-challenge-irc/">Previous Challenges</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </nav>
+          </div>
+          <div class="col-md-9">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="tab-content">
+                                  <h1 id="recognizing-one-million-celebrities">Recognizing One Million Celebrities</h1>
+
+<h2 id="task-description">Task Description</h2>
+
+<p style="text-align:center"><img src="../../assets/FLTask_Anne2.jpg" alt="irc_ms-celeb-1m-sample0" /></p>
+
+<p>The challenge is to recognize one million celebrities from their face images and identify them by linking to the unique entity keys in a knowledge base. 
+This task introduces <strong>very large scale face recognition with disambiguation</strong>. 
+More specifically, our task has the following properties.</p>
+
+<ul>
+  <li>
+    <p>We introduce a <strong>knowledge base</strong> (<a href="https://en.wikipedia.org/wiki/Freebase">Freebase</a>) into face recognition, since the recent advance in knowledge bases has demonstrated incredible capability
+of providing accurate identifiers and rich properties for celebrities.</p>
+  </li>
+  <li>
+    <p>Recognizing
+<strong>celebrities</strong>, rather than a pre-selected private group of people, represents public
+interest and could be directly applied to a wide range of real scenarios
+Moreover, only with popular celebrities, we can leverage the existing information (e.g.
+name, profession) in the knowledge base and the information on the web to build
+a large-scale dataset which is publicly available for training, measurement, and
+re-distributing under certain licenses.</p>
+  </li>
+  <li>
+    <p>We select <strong>one million</strong> celebrities from <a href="https://en.wikipedia.org/wiki/Freebase">Freebase</a> according to their occurrence frequencies (popularities) on the web. 
+Considering each entity as one class may lead to, to the best
+of our knowledge, the largest classification problem in computer vision. The clear
+definition and mutually exclusiveness of these classes are supported by the unique
+entity keys and their associated properties provided by the knowledge base.</p>
+  </li>
+</ul>
+
+<p>We provide training and measurement set for the given challenge, with descriptions <a href="../../celeb1m/dataset">here</a>. 
+Participants are encouraged to build recognition system based on, but not limited to, our training data.</p>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>Our measurement set consists
+of images for a subset of celebrities in our one-million celebrity list.
+Currently, we select <strong>1000</strong> celebrities and carefully label about 30 images per celebrity. 
+We select <strong>two</strong> images per celebrity from all the labeled images and form the following two sets.</p>
+
+<ul>
+  <li>
+    <p><strong>Random set</strong>:
+The image in this subset is randomly selected from the labeled images. One
+image per celebrity. This set reveals how many celebrities are truly covered
+by the models to be tested.</p>
+  </li>
+  <li>
+    <p><strong>Hard set</strong>:
+The image in this subset is the one (from the labeled images) which is
+the most different from any images in the training dataset. One image per
+celebrity. This set is to evaluate the generalization ability of the model, 
+and the robustness of the model on complex situations caused by pose/age/resolution/special effects/etc..</p>
+  </li>
+</ul>
+
+<p>In order to make our measurement more challenging, we blend a set of distractor
+images with both these sets of carefully labeled images. The distractor images are
+images of other celebrities or ordinary people on the web, which are mainly used
+to hide the celebrities we select in the measurement.</p>
+
+<p>We evaluate the recognition system with both the sets and rank the results seperately. 
+A contesting system is asked to produce at least one prediction label with a confidence score per test image (including both labeled image and distractors). 
+To match with real scenarios, we measure the recognition recall at a given precision 95% for both the sets. 
+That is, for N images in the measurement set, if an algorithm recognizes M images, among which C images are correct, we will calculate precision and recall as:</p>
+
+<p>precision = C/M</p>
+
+<p>coverage = M/N</p>
+
+<p>By varying the recognition confidence threshold, we can determine the coverage when the precision is at 95%. 
+Note that we ignore distractor images in this evaluation metric.</p>
+
+<p><strong>Note: Commercial/public intelligent services are not allowed to be called during the evaluation, e.g. <a href="https://www.microsoft.com/cognitive-services">Microsoft Cognitive Servcies</a>, etc. We will detect and ban the contestants for this kind of behavior.</strong></p>
+
+
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="site-footer">
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+
+    <div class="footer-col-1 column">
+        <li>
+          <a href="mailto:your-email@example.com">your-email@example.com</a>
+       </li>
+    </div>
+
+    <div class="footer-col-2 column">
+        
+    </div>
+
+    <div class="footer-col-3 column">
+      
+    </div>
+
+  </div>
+  </div>
+
+</footer>
+
+    <!-- mathjax -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- jquery, must be before boostrap as its dependency -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>    
+    <!-- boostrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        parts = this.location.pathname.split('/').filter(function(el) {return el.length != 0});
+        if (parts.length == 0)
+        {
+            $('a[href="/"]').parents('li,ul').addClass('active');
+        }
+        else
+        {
+            for (var i = 0; i < parts.length; i++)
+            {
+                $('a[href*="' + parts[i] + '"]').parents('li,ul').addClass('active');
+            }
+        }
+    </script>
+
+  </body>
+
+</html>
